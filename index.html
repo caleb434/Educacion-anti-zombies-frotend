@@ -15,22 +15,25 @@
     position:fixed;
     inset:0;
     background:center/cover no-repeat url("assets/images/garganta.png");
+    z-index:0;
   }
 
-  /* ===== MANDÍBULA SUPERIOR (SIN RECORTAR) ===== */
+  /* ===== MANDÍBULA SUPERIOR (COMPLETA, SOLO SE VE UNA PARTE) ===== */
   .mandibulasuperior{
     position:fixed;
     left:0;
-    width:100vw;     /* se ajusta al ancho de la pantalla */
-    height:auto;     /* mantiene toda la altura de la imagen */
-    top:-220px;      /* la sube para que solo se vea una parte */
+    width:100vw;     /* La imagen se escala al ancho completo */
+    height:auto;     /* Mantiene proporción real (sin recortes) */
+    top:-400px;      /* La sube para que solo se vea la parte inferior (dientes) */
     z-index:1;
     pointer-events:none;
   }
 </style>
 
+<!-- FONDO ROJO (GARGANTA) -->
 <div class="garganta"></div>
 
+<!-- MANDÍBULA SUPERIOR (IMAGEN COMPLETA, PERO SOLO SE VE UNA PARTE) -->
 <img class="mandibulasuperior"
      src="assets/images/mandibula superior.png"
      alt="">
