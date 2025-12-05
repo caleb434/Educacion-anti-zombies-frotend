@@ -3,37 +3,34 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 
 <style>
-  /* ===== CONFIGURACIÓN GENERAL ===== */
   html,body{
     margin:0;
     height:100%;
     overflow:hidden;
   }
 
-  /* ===== FONDO: GARGANTA ===== */
+  /* Fondo */
   .garganta{
     position:fixed;
     inset:0;
     background:center/cover no-repeat url("assets/images/garganta.png");
-    z-index:0;
   }
 
-  /* ===== MANDÍBULA SUPERIOR (COMPLETA, SOLO SE VE UNA PARTE) ===== */
+  /* Mandíbula superior */
   .mandibulasuperior{
     position:fixed;
-    left:0;
-    width:100vw;     /* La imagen se escala al ancho completo */
-    height:auto;     /* Mantiene proporción real (sin recortes) */
-    top:-400px;      /* La sube para que solo se vea la parte inferior (dientes) */
+    left:50%;              /* Centramos */
+    transform:translateX(-50%); /* Asegura centrado exacto */
+    width:140vw;           /* Más grande que la pantalla para que cubra todo */
+    height:auto;
+    top:-260px;            /* SUBE la mandíbula (ajusta este valor) */
     z-index:1;
     pointer-events:none;
   }
 </style>
 
-<!-- FONDO ROJO (GARGANTA) -->
 <div class="garganta"></div>
 
-<!-- MANDÍBULA SUPERIOR (IMAGEN COMPLETA, PERO SOLO SE VE UNA PARTE) -->
 <img class="mandibulasuperior"
      src="assets/images/mandibula superior.png"
      alt="">
