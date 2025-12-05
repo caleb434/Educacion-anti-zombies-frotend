@@ -1,15 +1,13 @@
 <!doctype html>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Fondo fijo garganta</title>
 <style>
   html,body{height:100%;margin:0;overflow:hidden}
   .bg{
     position:fixed;inset:0;
     background: center/cover no-repeat url("assets/images/garganta.png");
-    transform:translateZ(0); /* iOS: capa estable */
+    transform:translateZ(0);
   }
-  /* Opcional: mueve el foco en pantallas verticales si recorta mal */
   @media (orientation:portrait){
     .bg{ background-position: 50% 35%; }
   }
