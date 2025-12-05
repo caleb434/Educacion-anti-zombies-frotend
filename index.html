@@ -1,43 +1,67 @@
+<!-- File: /index.html -->
 <!doctype html>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Boca — Mandíbula superior corregida</title>
+    <style>
+      /* ===== BASE ===== */
+      html, body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden; /* evita scroll que genera 1–3px de hueco con 100vw */
+      }
 
-<style>
-  /* ===== CONFIGURACIÓN GENERAL ===== */
-  html,body{
-    margin:0;
-    height:100%;
-    overflow:hidden;
-  }
+      /* ===== FONDO: GARGANTA (sin imagen, a prueba de fallos) ===== */
+      .garganta {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        background:
+          radial-gradient(80% 60% at 50% 65%, #6f1313 10%, #4a0f0f 60%, #6f1414 100%);
+      }
 
-  /* ===== FONDO: GARGANTA (ROJO) ===== */
-  .garganta{
-    position:fixed;
-    inset:0;
-    background:center/cover no-repeat url("assets/images/garganta.png");
-    z-index:0;
-  }
+      /* ===== MANDÍBULA SUPERIOR ===== */
+      .mandibula-superior {
+        position: fixed;
+        top: 0;
+        left: 0;           /* sin offset */
+        right: 0;          /* ocupa todo el ancho, evita 100vw */
+        height: 22vh;
+        display: block;    /* elimina gaps de elementos inline */
+        object-fit: cover; /* rellena ancho manteniendo proporción */
+        object-position: bottom center;
+        pointer-events: none;
+        z-index: 1;
+      }
 
-  /* ===== MANDÍBULA SUPERIOR ===== */
-  .mandibulasuperior{
-    position:fixed;
-    top:0;
-    left:0;          /* <- antes estaba en 5px; causaba el hueco */
-    right:0;         /* asegura ocupar todo el ancho */
-    width:100vw;
-    height:22vh;
-    object-fit:cover;
-    object-position:bottom center;
-    z-index:1;
-    pointer-events:none;
-    display:block;   /* por si algún navegador trata <img> como inline */
-  }
-</style>
+      /* (Opcional) Contenido de prueba para ver capas */
+      .contenido {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        display: grid;
+        place-items: center;
+        color: #fff4d6;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      }
+    </style>
+  </head>
+  <body>
+    <!-- FONDO -->
+    <div class="garganta" aria-hidden="true"></div>
 
-<!-- FONDO: GARGANTA -->
-<div class="garganta"></div>
+    <!-- MANDÍBULA SUPERIOR (usa la ruta local del archivo que subiste) -->
+    <img
+      class="mandibula-superior"
+      src="/mnt/data/3f35049c-9ff2-4e5e-8eae-a2c84c4ccdac.png"
+      alt="Mandíbula superior"
+    />
 
-<!-- MANDÍBULA SUPERIOR -->
-<img class="mandibulasuperior"
-     src="assets/images/mandibula superior.png"
-     alt="">
+    <!-- Demo de contenido (puedes eliminarlo) -->
+    <main class="contenido">
+      <h1>Boca centrada y sin huecos</h1>
+    </main>
+  </body>
+</html>
