@@ -1,77 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mordida Zombie</title>
+  <meta charset="UTF-8">
+  <title>Boca Zombie</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <script src="https://pixijs.download/release/pixi.min.js"></script>
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden; /* para que no aparezcan barras */
+    }
 
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            background: #111;
-        }
-    </style>
+    .scene {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .garganta {
+      position: absolute;
+      inset: 0;              /* top, right, bottom, left: 0 */
+      width: 100%;
+      height: 100%;
+      object-fit: cover;     /* se adapta a la pantalla */
+      z-index: 1;
+    }
+
+    .mandibula-superior,
+    .mandibula-inferior {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;           /* ajusta si quieres que sean más pequeñas */
+      z-index: 2;
+      pointer-events: none;  /* para que no molesten clics */
+    }
+
+    .mandibula-superior {
+      top: 0;
+    }
+
+    .mandibula-inferior {
+      bottom: 0;
+    }
+  </style>
 </head>
 <body>
 
-<script>
-// ---------------------------
-// 1. Crear aplicación PIXI
-// ---------------------------
-const app = new PIXI.Application({
-    width: window.innerWidth,
-    height: window.innerHeight,
-    backgroundColor: 0x111111,
-    antialias: true
-});
-
-document.body.appendChild(app.view);
-
-// ---------------------------
-// 2. Cargar imágenes
-// ---------------------------
-PIXI.Assets.load([
-    "assets/images/mandibula superior.png",
-    "assets/images/mandibula inferior.png"
-]).then(() => {
-
-    // Crear sprites
-    const sup = PIXI.Sprite.from("assets/images/mandibula superior.png");
-    const inf = PIXI.Sprite.from("assets/images/mandibula inferior.png");
-
-    // ---------------------------
-    // 3. Ajustar posición
-    // ---------------------------
-
-    sup.anchor.set(0.5, 1); // centro abajo
-    inf.anchor.set(0.5, 0); // centro arriba
-
-    sup.x = app.renderer.width / 2;
-    inf.x = app.renderer.width / 2;
-
-    sup.y = app.renderer.height / 2 - 50; 
-    inf.y = app.renderer.height / 2 + 50;
-
-    app.stage.addChild(sup);
-    app.stage.addChild(inf);
-
-    // ---------------------------
-    // 4. Animación simple
-    // ---------------------------
-    let angle = 0;
-
-    app.ticker.add(() => {
-        angle += 0.03;
-
-        // movimiento de abrir/cerrar
-        inf.y = (app.renderer.height / 2) + Math.sin(angle) * 20 + 50;
-    });
-
-});
-</script>
+  <div class="scene">
+    <img class="garganta" src="garganta.png" alt="Garganta">
+    <img class="mandibula-superior" src="mandibula-superior.png" alt="Mandíbula superior">
+    <img class="mandibula-inferior" src="mandibula-inferior.png" alt="Mandíbula inferior">
+  </div>
 
 </body>
 </html>
