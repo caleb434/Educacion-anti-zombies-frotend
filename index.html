@@ -1,52 +1,18 @@
+<!-- /index.html -->
 <!doctype html>
 <html lang="es">
-<head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Boca</title>
+  <title>Garganta Fullscreen</title>
   <style>
-    html, body { margin:0; height:100%; overflow:hidden; }
-
-    .garganta{
-      position:fixed;
-      inset:0;
-      background:center/cover no-repeat url("assets/images/garganta.png");
-      z-index:0;
-    }
-
-    .mandibula-superior{
-      position:fixed;
-      top:0;
-      left:0;
-      right:0;              /* ocupa todo el ancho sin 100vw */
-      height:22vh;
-      display:block;        /* evita gap inline */
-      object-fit:cover;     /* rellena ancho */
-      object-position:bottom center; /* centrada */
-      pointer-events:none;
-      z-index:1;
-    }
-
-    /* — Alternativa si tu PNG tiene márgenes transparentes — */
-    .mandibula-superior-bg{
-      position:fixed; top:0; left:0; right:0; height:22vh;
-      background: bottom center / cover no-repeat url("assets/images/mandibula%20superior.png");
-      pointer-events:none; z-index:1;
+    /* Por qué: svh/dvh corrigen la altura en móviles con barras dinámicas */
+    html,body{margin:0}
+    body{
+      min-height:100vh;        /* fallback universal */
+      min-height:100svh;       /* iOS/Android barras visibles */
+      height:100dvh;           /* altura dinámica real */
+      background:#000 url('assets/images/garganta.png') center/cover no-repeat;
     }
   </style>
-</head>
-<body>
-  <div class="garganta" aria-hidden="true"></div>
-
-  <!-- Usa %20 por el espacio en el nombre o renómbralo -->
-  <img class="mandibula-superior"
-       src="assets/images/mandibula%20superior.png"
-       alt="Mandíbula superior" />
-
-  <!-- En esta demo local, también podrías probar con el archivo que subiste: -->
-  <!-- <img class="mandibula-superior" src="/mnt/data/3f35049c-9ff2-4e5e-8eae-a2c84c4ccdac.png" alt="Mandíbula superior" /> -->
-
-  <!-- Si prefieres background (quitar el <img> de arriba): -->
-  <!-- <div class="mandibula-superior-bg" aria-label="Mandíbula superior"></div> -->
-</body>
+  <body></body>
 </html>
