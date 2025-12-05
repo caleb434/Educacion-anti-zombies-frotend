@@ -5,14 +5,32 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Garganta Fullscreen</title>
   <style>
-    /* Por qué: svh/dvh corrigen la altura en móviles con barras dinámicas */
     html,body{margin:0}
     body{
-      min-height:100vh;        /* fallback universal */
-      min-height:100svh;       /* iOS/Android barras visibles */
-      height:100dvh;           /* altura dinámica real */
+      min-height:100vh;      /* fallback */
+      min-height:100svh;     /* barras visibles móviles */
+      height:100dvh;         /* altura dinámica real */
       background:#000 url('assets/images/garganta.png') center/cover no-repeat;
     }
+    /* Por qué: fijar, centrar y permitir que “se salga” sin recortar */
+    .mandibula {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;          /* ocupa todo el ancho */
+      height: auto;
+      z-index: 10;
+      pointer-events: none;  /* evita interceptar clics si luego agregas UI */
+      display: block;
+    }
   </style>
-  <body></body>
+  <body>
+    <!-- Nota: el archivo tiene espacio; usa %20 -->
+    <img
+      class="mandibula"
+      src="assets/images/mandibula%20superior.png"
+      alt="Mandíbula superior superpuesta"
+    />
+  </body>
 </html>
