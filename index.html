@@ -2,14 +2,10 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <style>
-  html,body{height:100%;margin:0;overflow:hidden}
-  .bg{
-    position:fixed;inset:0;
-    background: center/cover no-repeat url("assets/images/garganta.png");
-    transform:translateZ(0);
-  }
-  @media (orientation:portrait){
-    .bg{ background-position: 50% 35%; }
-  }
+  html,body{margin:0;height:100%;overflow:hidden}
+  .bg{position:fixed;inset:0;background:center/cover no-repeat url("assets/images/garganta.png");transform:translateZ(0)}
+  .ov{position:fixed;inset:0;margin:auto;width:min(85vw,900px);height:auto;z-index:1;pointer-events:none}
+  @media(orientation:portrait){.bg{background-position:50% 35%}}
 </style>
 <div class="bg" aria-hidden="true"></div>
+<img class="ov" src="assets/images/mandibula%20superior.png" alt="">
