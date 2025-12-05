@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Educación anti zombies</title>
 
-    <!-- Favicon / Logo -->
-    <link rel="icon" href="assets/images/logo.svg?v=1" type="image/svg+xml">
-    <link rel="mask-icon" href="assets/images/logo.svg?v=1" color="#111111">
+    <!-- Favicon / Logo (SVG + fallbacks PNG). Rutas relativas para GitHub Pages. -->
+    <link rel="icon" href="./assets/images/logo.svg?v=3" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="./assets/images/ojos.png?v=3" type="image/png" sizes="32x32">
+    <link rel="icon" href="./assets/images/ojos.png?v=3" type="image/png" sizes="16x16">
     <meta name="theme-color" content="#111111" />
 
     <!-- Preloads -->
@@ -37,54 +38,4 @@
 
       html, body { height: 100%; margin: 0; }
       body {
-        background: #000 url("assets/images/garganta.png") center / cover no-repeat fixed;
-      }
-
-      .overlay-image{
-        position: fixed;
-        pointer-events: none;
-        image-rendering: auto;
-      }
-
-      /* Inferior: plano base */
-      #mandibulaInferior{
-        z-index: 1;
-        top: var(--inf-top);
-        left: var(--inf-left);
-        width: var(--inf-width);
-        height: var(--inf-height);
-        transform: translate(calc(-50% + var(--inf-tx)), calc(-50% + var(--inf-ty)));
-      }
-
-      /* Superior: encima de la inferior */
-      #mandibulaSuperior{
-        z-index: 2;
-        top: var(--sup-top);
-        left: var(--sup-left);
-        width: var(--sup-width);
-        height: var(--sup-height);
-        transform: translate(calc(-50% + var(--sup-tx)), calc(-50% + var(--sup-ty)));
-      }
-    </style>
-  </head>
-  <body>
-    <img
-      id="mandibulaInferior"
-      class="overlay-image"
-      src="assets/images/mandibulainferior.png"
-      alt="Mandíbula inferior"
-      decoding="async"
-      fetchpriority="high"
-      onerror="this.onerror=null; this.src='assets/images/mandibula inferior.png';"
-    />
-    <img
-      id="mandibulaSuperior"
-      class="overlay-image"
-      src="assets/images/mandibulasuperior.png"
-      alt="Mandíbula superior"
-      decoding="async"
-      fetchpriority="high"
-      onerror="this.onerror=null; this.src='assets/images/mandibula superior.png';"
-    />
-  </body>
-</html>
+        background: #000 url("assets/images/garg
