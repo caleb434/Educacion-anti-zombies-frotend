@@ -1,14 +1,22 @@
+<!-- File: index.html -->
 <!doctype html>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Garganta fija sin recorte</title>
-<style>
-  html,body{margin:0;height:100%;overflow:hidden;background:#120000} /* por qué: franjas coherentes */
-  img.bg{
-    position:fixed;inset:0;width:100vw;height:100vh;
-    object-fit:contain;object-position:center; /* por qué: no recorta */
-    pointer-events:none;user-select:none;touch-action:none;
-    -webkit-user-drag:none; /* iOS: estable y “fijo” */
-  }
-</style>
-<img class="bg" alt="Garganta" src="assets/images/garganta.png">
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Fondo fijo - garganta</title>
+    <style>
+      /* Por qué: evita scroll y bordes del body */
+      html, body { height: 100%; margin: 0; overflow: hidden; }
+      /* Por qué: fixed + inset funciona estable en iOS y desktop */
+      .bg {
+        position: fixed; inset: 0;
+        background: center/cover no-repeat url("assets/images/garganta.png");
+        transform: translateZ(0); /* fuerza capa GPU en móviles */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg" aria-hidden="true"></div>
+  </body>
+</html>
