@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Educación anti zombies</title>
 
+    <!-- Favicon / Logo -->
+    <link rel="icon" href="assets/images/logo.svg?v=1" type="image/svg+xml">
+    <link rel="mask-icon" href="assets/images/logo.svg?v=1" color="#111111">
+    <meta name="theme-color" content="#111111" />
+
     <!-- Preloads -->
     <link rel="preload" as="image" href="assets/images/garganta.png" />
-    <link rel="preload" as="image" href="assets/images/mandibula superior.png" />
-    <link rel="preload" as="image" href="assets/images/mandibula inferior.png" />
+    <link rel="preload" as="image" href="assets/images/mandibulasuperior.png" />
+    <link rel="preload" as="image" href="assets/images/mandibulainferior.png" />
 
     <style>
       :root{
@@ -43,7 +48,7 @@
 
       /* Inferior: plano base */
       #mandibulaInferior{
-        z-index: 1; /* debajo */
+        z-index: 1;
         top: var(--inf-top);
         left: var(--inf-left);
         width: var(--inf-width);
@@ -51,9 +56,9 @@
         transform: translate(calc(-50% + var(--inf-tx)), calc(-50% + var(--inf-ty)));
       }
 
-      /* Superior: siempre arriba de la inferior */
+      /* Superior: encima de la inferior */
       #mandibulaSuperior{
-        z-index: 2; /* encima */
+        z-index: 2;
         top: var(--sup-top);
         left: var(--sup-left);
         width: var(--sup-width);
