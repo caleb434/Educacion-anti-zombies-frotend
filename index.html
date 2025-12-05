@@ -3,34 +3,40 @@
 <html lang="es">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Garganta Fullscreen</title>
+  <title>Garganta + Mandíbula</title>
   <style>
+    :root{
+      /* 2 perillas: ajusta a gusto */
+      --scaleX: 1.10;   /* 1 = normal, >1 más ancho (deforma a lo horizontal) */
+      --offsetY: -6vh;  /* negativo sube, positivo baja (desde el centro) */
+    }
+
     html,body{margin:0}
     body{
-      min-height:100vh;      /* fallback */
-      min-height:100svh;     /* barras visibles móviles */
-      height:100dvh;         /* altura dinámica real */
+      min-height:100vh;
+      min-height:100svh;
+      height:100dvh;
       background:#000 url('assets/images/garganta.png') center/cover no-repeat;
     }
-    /* Por qué: fijar, centrar y permitir que “se salga” sin recortar */
-    .mandibula {
-      position: fixed;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100vw;          /* ocupa todo el ancho */
-      height: auto;
-      z-index: 10;
-      pointer-events: none;  /* evita interceptar clics si luego agregas UI */
-      display: block;
+
+    /* Centrada exacta; arriba de la garganta; puede salirse sin recortar */
+    .mandibula{
+      position:fixed;
+      left:50%;
+      top:calc(50% + var(--offsetY));          /* (3) subir/bajar */
+      transform:translate(-50%,-50%) scaleX(var(--scaleX)); /* (1) centro + (2) ancho */
+      transform-origin:center;
+      width:100vw;                              /* base que ya toca bordes */
+      height:auto;
+      z-index:10;
+      pointer-events:none;
+      display:block;
     }
   </style>
   <body>
-    <!-- Nota: el archivo tiene espacio; usa %20 -->
-    <img
-      class="mandibula"
-      src="assets/images/mandibula%20superior.png"
-      alt="Mandíbula superior superpuesta"
-    />
+    <!-- OJO: el nombre del archivo tiene espacio -->
+    <img class="mandibula"
+         src="assets/images/mandibula%20superior.png"
+         alt="Mandíbula superior" />
   </body>
 </html>
